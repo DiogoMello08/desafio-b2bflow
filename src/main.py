@@ -1,6 +1,7 @@
 import logging
 
 from src.database import get_contacts
+from src.whatsapp import send_message
 
 logging.basicConfig(
     level=logging.INFO,
@@ -24,24 +25,22 @@ def run() -> None:
     processed = 0
 
     for contact in contacts:
-
         name = contact.get("nome")
         phone = contact.get("telefone")
 
         if not name or not phone:
-            logging.warning(
-                f"Contato inválido encontrado: {contact}"
-            )
+            logging.warning(f"Contato inválido encontrado: {contact}")
             continue
 
-        message = f"Olá, {name} tudo bem com você?"
+        success = send_message(phone, name)
 
-        logging.info(
-            f"Mensagem preparada para {name}: {message}"
-        )
-
-        processed += 1
+        if success:
+            processed += 1
 
     logging.info(
-        f"Processamento finalizado. {processed} mensagem(ns) preparada(s)."
+        f"Processamento finalizado. {processed} mensagem(ns) enviada(s)."
     )
+
+
+if __name__ == "__main__":
+    run()

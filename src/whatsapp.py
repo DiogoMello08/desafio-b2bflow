@@ -1,3 +1,4 @@
+import logging
 import requests
 
 from src.config import (
@@ -5,22 +6,21 @@ from src.config import (
     ZAPI_TOKEN
 )
 
-def send_message(phone, name):
 
+def send_message(phone: str, name: str) -> bool:
     url = (
-        f"https://api.z-api.io/"
-        f"instances/{ZAPI_INSTANCE_ID}"
-        f"/token/{ZAPI_TOKEN}"
-        f"/send-text"
+        f"https://api.z-api.io/instances/3F4CDDB7B3F941FBC043CA63B40AA2AA/token/CB099FD2830D2DD4644E810B/send-text"
+        f"{ZAPI_INSTANCE_ID}/token/{ZAPI_TOKEN}/send-text"
     )
+
+    message = f"Olá, {name} tudo bem com você?"
 
     payload = {
         "phone": phone,
-        "message": f"Olá, {name} tudo bem com você?"
+        "message": message
     }
 
     try:
-
         response = requests.post(
             url,
             json=payload,
@@ -29,13 +29,9 @@ def send_message(phone, name):
 
         response.raise_for_status()
 
-        print(
-            f"Mensagem enviada para {name}"
-        )
+        logging.info(f"Mensagem enviada para {name}")
+        return True
 
-    except Exception as error:
-
-        print(
-            f"Erro ao enviar para "
-            f"{name}: {error}"
-        )
+    except requests.exceptions.RequestException as error:
+        logging.error(f"Erro ao enviar mensagem para {name}: {error}")
+        return False
