@@ -18,20 +18,21 @@ Olá, <nome_contato> tudo bem com você?
 - Python Dotenv
 
 ## Estrutura do Projeto
-src/
 
-├── config.py
-
-├── database.py
-
-├── whatsapp.py
-
-└── main.py
-
-run.py
-.env.example
-requirements.txt
-README.md
+```text
+desafio-b2bflow/
+│
+├── src/
+│   ├── config.py
+│   ├── database.py
+│   ├── whatsapp.py
+│   └── main.py
+│
+├── run.py
+├── .env.example
+├── requirements.txt
+└── README.md
+```
 
 ## Fluxo da Aplicação
 1. Consulta contatos no Supabase.
