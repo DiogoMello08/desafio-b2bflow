@@ -9,7 +9,7 @@ from src.config import (
 
 def send_message(phone: str, name: str) -> bool:
     url = (
-        f"https://api.z-api.io/instances/3F4CDDB7B3F941FBC043CA63B40AA2AA/token/CB099FD2830D2DD4644E810B/send-text"
+        f"https://api.z-api.io/instances/"
         f"{ZAPI_INSTANCE_ID}/token/{ZAPI_TOKEN}/send-text"
     )
 
