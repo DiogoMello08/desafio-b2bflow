@@ -56,18 +56,19 @@ pip install -r requirements.txt
 
 5. Configurar variáveis de ambiente 
 Criar um arquivo .env com:
-
+```env
 SUPABASE_URL=
 SUPABASE_KEY=
 
 ZAPI_INSTANCE_ID=
 ZAPI_TOKEN=
-
-## Estrutura da Tabela 
-Campo                Tipo
-id                   integer
-nome                 text
-telefone             text
+```
+## Estrutura da Tabela
+| Campo    | Tipo    |
+|----------|---------|
+| id       | integer |
+| nome     | text    |
+| telefone | text    |
 
 ## Funcionalidades
 - Busca até 3 contatos cadastrados no Supabase.
@@ -88,7 +89,6 @@ Ao executar a aplicação:
 5. O sistema registra logs de execução e possíveis falhas.
 
 ## Execução
-Para executar a aplicação:
 
 ```bash
 python run.py
