@@ -20,8 +20,11 @@ Olá, <nome_contato> tudo bem com você?
 ## Estrutura do Projeto
 src/
 ├── config.py
+
 ├── database.py
+
 ├── whatsapp.py
+
 └── main.py
 
 run.py
