@@ -94,7 +94,7 @@ Ao executar a aplicação:
 ```bash
 python run.py
 ```
-## Melhorias Implementadas
+## Boas Práticas Implementadas
 
 - Separação de responsabilidades em módulos.
 - Uso de variáveis de ambiente para credenciais.
