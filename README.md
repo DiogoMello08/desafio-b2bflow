@@ -1,7 +1,7 @@
 # Desafio Técnico - Estágio Python | b2bflow
 
 ## Objetivo
-Aplicação desenvolvida em Python para leitura de contatos armazenados no Supabase e envio de mensagens personalizadas via Z-API.
+Aplicação desenvolvida em Python que consulta contatos armazenados no Supabase e realiza o envio automatizado de mensagens personalizadas via WhatsApp utilizando a Z-API.
 A mensagem enviada segue o formato:
 Mensagem enviada:
 
@@ -33,6 +33,13 @@ run.py
 requirements.txt
 README.md
 
+## Fluxo da Aplicação
+1. Consulta contatos no Supabase.
+2. Valida os registros retornados.
+3. Personaliza a mensagem para cada contato.
+4. Envia a mensagem via Z-API.
+5. Registra logs de execução e possíveis falhas.
+
 ## Configuração 
 1. Clonar o projeto
 git clone <repositorio>
@@ -62,21 +69,23 @@ id                   integer
 nome                 text
 telefone             text
 
-- Funcionalidades 
-. Busca até 3 contatos cadastrados no Supabase.
-. Personaliza a mensagem utilizando o nome do contato.
-. Valida registros inválidos.
-. Utiliza variáveis de ambiente para informações sensíveis.
-. Implementa logs para acompanhamento da execução.
-. Implementa tratamento básico de erros.
+## Funcionalidades
+- Busca até 3 contatos cadastrados no Supabase.
+- Personaliza a mensagem utilizando o nome do contato.
+- Envia mensagens via WhatsApp utilizando a Z-API.
+- Valida registros inválidos retornados pelo banco.
+- Utiliza variáveis de ambiente para proteger informações sensíveis.
+- Implementa logs para acompanhamento da execução.
+- Implementa tratamento básico de erros.
 
-## Observações
-Durante o desenvolvimento foram implementados:
+## Resultado
+Ao executar a aplicação:
 
-- Logs para acompanhamento da execução.
-- Validação básica dos contatos retornados pelo banco.
-- Tratamento de erros na integração com o Supabase.
-- Uso de variáveis de ambiente para proteger informações sensíveis.
+1. Os contatos são consultados no Supabase.
+2. Até 3 registros são processados.
+3. A mensagem é personalizada com o nome do contato.
+4. A mensagem é enviada para o WhatsApp através da Z-API.
+5. O sistema registra logs de execução e possíveis falhas.
 
 ## Execução
 Para executar a aplicação:
@@ -84,3 +93,10 @@ Para executar a aplicação:
 ```bash
 python run.py
 ```
+## Melhorias Implementadas
+
+- Separação de responsabilidades em módulos.
+- Uso de variáveis de ambiente para credenciais.
+- Tratamento de exceções nas integrações externas.
+- Registro de logs para monitoramento da execução.
+- Estrutura preparada para expansão futura.
